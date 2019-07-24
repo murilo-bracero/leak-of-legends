@@ -9,7 +9,7 @@ The actual Leak of Legends app is capable of manage user accounts signed up in i
 
 The user can sign up and add your favourite champions to your account, and also can search for friends and see yours favourite champs.
 
-####Legal Notices
+#### Legal Notices
 The Mastery logo is a intelectual property of Riot Games.
 
 The data from op.gg and matchup.gg is obtained using a legal-way web-scrapping.
