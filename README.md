@@ -1,6 +1,6 @@
-#Leak Of Legends
+## Leak Of Legends
 
-#Front End
+# Front End
 
 The app is made using ReactJS and is still under development.
 The Mastery logo is a intelectual property of Riot Games.
