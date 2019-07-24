@@ -1,4 +1,5 @@
-##Leak Of Legends
+#Leak Of Legends
+
 #Front End
 
 The app is made using ReactJS and is still under development.
