@@ -1,0 +1,75 @@
+.gift{
+    height: 80vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+.broad{
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    z-index: 2;
+    position: relative;
+    top: -50vh;
+    font-size: 50pt;
+    font-weight: bold;
+}
+.broad h1{
+    margin: 0;
+    padding: 0;
+}
+
+.explain{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10vh;
+}
+.explain h1{
+    font-size: 20pt;
+    margin-bottom: 2vh;
+    font-weight: bold;
+}
+.explain p{
+    font-size: 15pt;
+}
+
+.use-it{
+    height: 80vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    margin-bottom: 20vh; 
+}
+.use-it article{
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    z-index: 2;
+    position: relative;
+    bottom: -30vh;
+    color: #1e2328;
+    font-weight: bold;
+}
+.use-it article h1{
+    font-size: 30pt;
+}
+.use-it article a{
+    text-decoration: none;
+    color: #bbdce9;
+    transition: all 0.5s;
+}
+
+@media screen and (max-device-width: 760px){
+    .broad{
+        font-size: 30pt;
+    }
+}

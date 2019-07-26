@@ -1,0 +1,91 @@
+.enclauser{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container-wrap{
+    max-width: 90%;
+    position: relative;
+    background: linear-gradient(#6e5d34, #44381d);
+    padding: 3px;
+}
+
+.container{
+    background: #000;
+    color: white;
+    padding: 2rem;
+}
+
+.container .title{
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0 2rem 0;
+}
+
+.container input{
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    border:thin solid #6e5d34;
+    background-color: #473b26;
+    margin-bottom: 1rem;
+    color: white;
+    padding: 5px;
+}
+
+.container input[type="password"]{
+    padding: 8px;
+    font-size: 8px;
+}
+
+.container input:focus{
+    border: thin solid #947d46;
+}
+
+.container label{
+    color: #c9c9c9;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.container .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container button[type="submit"]{
+    color: #bbdce9;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    width: 100%;
+    border: 2px solid #01668a;
+    background: #1e2328;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.container button[type="submit"]:hover{
+    background: #121518;
+}
+
+.container p{
+    margin-top: 1em;
+    color: #bbdce9;
+    background: #1e2328;
+    border-bottom: thin solid#0d8cbb;
+    padding: 5px;
+}
+
+.container a{
+    color: #bbdce9;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.container .footer{
+    margin-bottom: 1em;
+}

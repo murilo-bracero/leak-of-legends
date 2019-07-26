@@ -1,0 +1,145 @@
+.homepage nav{
+    min-height: 8vh;
+    background: linear-gradient(rgba(0,0,0,0.5), transparent);
+    color: #c9aa60;
+}
+
+.homepage hr{
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+.homepage .logo{
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+.sidebar{
+    padding: 10px;
+    background-color: #000; 
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px; 
+    float: left;
+    height: 100%;
+    overflow: auto;
+    width: 200px;
+}
+
+.text{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #b8dfee; 
+}
+
+.username{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 20px;
+}
+
+.champ-list{
+    padding-top: 5px; 
+    padding-left: 10px;
+}
+
+.champ-list li{
+    list-style: none;
+}
+
+.sidebar-adapter{
+    display: none;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.sidebar-adapter div{
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.homepage main{
+    margin-left: 200px;
+    padding: 20px;
+}
+
+@media screen and (max-device-width: 760px){
+    .homepage nav{
+        background: #0e2f36;
+    }
+    .sidebar-adapter{ display:block }
+    .sidebar{ 
+        background-color: #0e2f36;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 8vh;
+        height: 100vh;
+        border-bottom-right-radius: 15px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in;
+     }
+     .sidebar .text, .champ-list li, .sidebar .username{
+         color: white;
+     }
+     .logout{
+         color: #c9aa60;
+     }
+    .homepage main{ margin-left: 0;}
+}
+
+.sidebar-active{
+    transform: translateX(0%);
+}
+
+.toggle .l1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .l2{
+    opacity: 0;
+}
+.toggle .l3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.logout{
+    margin-top: 20px;
+    cursor: pointer; 
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.selector{
+    width: 100%;
+    display: flex;
+    background-color: #000;
+    border-top: thin solid #6e6e6e;
+    border-bottom: thin solid #6e6e6e;
+    margin-bottom: 3vh;  
+}
+.selector ul{
+    list-style: none;
+}
+.selector li{
+    color: #c9aa60;
+    letter-spacing: 1px;
+    font-weight: bold;
+    cursor: pointer;
+    float: left;
+    padding: 15px;
+}
+
+.selector li:hover{
+    background-color: #012c3d;
+}
