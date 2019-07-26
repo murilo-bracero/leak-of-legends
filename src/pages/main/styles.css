@@ -52,7 +52,7 @@
     padding: 15px;
     display: flex;
     justify-content: center;
-    background: transparent;
+    background: rgba(255,255,255,0.5);
     z-index: 2;
     position: relative;
     bottom: -30vh;
@@ -64,7 +64,7 @@
 }
 .use-it article a{
     text-decoration: none;
-    color: #bbdce9;
+    color: #2b94bf;
     transition: all 0.5s;
 }
 
