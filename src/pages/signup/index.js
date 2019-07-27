@@ -17,9 +17,12 @@ class Signup extends Component{
 
     Signup = async () => {
         const { username, password, country } = this.state;
+        var loading = document.querySelector('.load-spinner');
+        loading.style.display = 'block';
 
         if(!username || !password || !country){
             this.setState({ error:'Please, fill in all fields for sign in' });
+            loading.style.display = 'none';
             return;
         }
 
@@ -40,6 +43,8 @@ class Signup extends Component{
                 return;
             }
             return;
+        }finally{
+            loading.style.display = 'none';
         }
     }
 
@@ -80,6 +85,9 @@ class Signup extends Component{
                     </select>
                     <div className="footer">
                         <button type="submit">Sign up</button>
+                    </div>
+                    <div className="load-container">
+                        <div className="load-spinner"></div>
                     </div>
                     <Link to="/login">Already have an account? Sign in</Link>
                 </form>

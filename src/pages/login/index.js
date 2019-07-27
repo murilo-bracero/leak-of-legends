@@ -22,9 +22,12 @@ class Login extends Component{
 
     async login(){
         const { username, password } = this.state;
+        var loading = document.querySelector('.load-spinner');
+        loading.style.display = 'block';
 
         if(!username || !password){
             this.setState({ error: 'Please, fill in all fields for sign in' });
+            loading.style.display = 'none';
             return;
         }
 
@@ -36,6 +39,8 @@ class Login extends Component{
             console.log(err);
             this.setState({ error: 'Wrong Credentials' });
             return;
+        }finally{
+            loading.style.display = 'none';
         }
     }
 
@@ -63,6 +68,9 @@ class Login extends Component{
                     <input type="password" id="password" value={this.state.password} onChange={this.handleChange}/>
                     <div className="footer">
                         <button type="submit">Sign in</button>
+                    </div>
+                    <div className="load-container">
+                        <div className="load-spinner"></div>
                     </div>
                     <Link to="/signup">...or sing up!</Link>
                 </form>

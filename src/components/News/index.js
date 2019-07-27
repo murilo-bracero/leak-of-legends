@@ -13,14 +13,22 @@ export default class News extends Component{
     }
 
     loadNews = async (page = 0) => {
-        const res = await api.get(`/getnews/${page}`);
-        this.setState({ news: res.data });
+        var loading = document.querySelector('.load-spinner');
+        loading.style.display = 'block';
+        await api.get(`/getnews/${page}`)
+                    .then(res => {
+                        loading.style.display = 'none';
+                        this.setState({ news: res.data });
+                    }).catch(err => alert('Ocorreu um erro na conexão.'));
     }
 
     render(){
         return (
             <div className="news-list">
                 <h1>News</h1>
+                <div className="load-container">
+                    <div className="load-spinner"></div>
+                </div>
                 {this.state.news.map( notice => (
                     <div className="wrapper" key={notice.title}>
                         <article>
