@@ -1,8 +1,28 @@
 .unknow{
+    padding-top: 10vh;
+    width: 80%;
+    margin: auto;
+}
+
+.unknow section{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    margin: auto;
+    border: 2px solid #6e5d34;
+    padding: 2em;
+    font-weight: bold;
+}
+
+.unknow section h1{
+    margin: 1em;
+    color: crimson;
+}
+.unknow section p{
+    color: #bbdce9;
+}
+
+.unknow section img{
+    margin: 1em;
+    max-width: 120px;
 }
