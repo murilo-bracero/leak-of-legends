@@ -1,12 +1,52 @@
 import React, { Component } from 'react';
 import './styles.css';
 import api from '../../services/api';
+import Autosuggest from 'react-autosuggest';
+import theme from './theme.module.css';
 
 export default class Profile extends Component{
     state = {
         champName: '',
-        favs: this.props.user.data.favs
+        favs: this.props.user.data.favs,
+        champlist: [],
+        suggestions: [],
     }
+
+    componentDidMount(){
+        this.getChampList();
+    }
+
+    getSuggestions = value => {
+        const inputValue = value.trim();
+        const inputLength = inputValue.length;
+        const { champlist } = this.state;
+
+        return inputLength === 0 ? [] : champlist.filter( champ => 
+            champ.slice(0, inputLength) === inputValue );
+    }
+
+    renderSuggestion = suggestion => (
+        <div>
+            {suggestion} 
+        </div>
+    );
+
+    onSuggestionsFetchRequested = ({ value }) => {
+        this.setState({ suggestions: this.getSuggestions(value) });
+    }
+
+    onSuggestionsClearRequested = () => {
+        this.setState({
+          suggestions: []
+        });
+    }
+
+    getSuggestionValue = suggestion => suggestion;
+
+    getChampList = async () => {
+        const res = await api.get('/getchamps');
+        this.setState({ champlist: res.data });
+    };
 
     showModal = e => {
         var modal = document.getElementById('modal');
@@ -19,18 +59,28 @@ export default class Profile extends Component{
             modal.style.display = 'none';
     }
 
-    handleChanges = e => this.setState({champName: e.target.value});
+    handleChanges = (e, { newValue }) => {
+        this.setState({champName: newValue});
+    };
     handleSubmit = e => {
         this.addChamp();
         e.preventDefault();
     }
 
     addChamp = async () => {
-        const {champName, favs} = this.state;
+        const {champName, favs, champlist} = this.state;
 
         if(champName == null || champName === '') return;
+
+        if(champlist.find( item => item.toLowerCase() === champName.toLowerCase() ) === undefined) return;
+
+        if(favs.find( item => item.toLowerCase() === champName.toLowerCase() ) !== undefined){
+            alert('You already have added this champion');
+            return;
+        }
+
         if(favs.length >= 10){
-            alert('Você já possui o limite de favoritos.');
+            alert('You reached the max favourites.');
             return;
         }
 
@@ -43,7 +93,7 @@ export default class Profile extends Component{
         }).then( res =>{
             load.style.display = 'none';
             this.showModal({ target: { id: 'close' } });
-            this.setState({ favs: res.data.favs });
+            this.setState({ favs: res.data.favs, champName: '' });
             this.render();
         } )
         .catch( err => alert('Ocorreu um erro na conexão'));
@@ -70,6 +120,13 @@ export default class Profile extends Component{
     }
 
     render(){
+
+        const inputProps = {
+            placeholder: 'Champion Name',
+            value: this.state.champName,
+            onChange: this.handleChanges
+        };
+
         return(
             <div className="profile">
                 <div className="username">
@@ -101,7 +158,15 @@ export default class Profile extends Component{
                     </div>
                     <div className="modal-content">
                         <form onSubmit={this.handleSubmit}>
-                            <input type="text" value={this.state.champName} onChange={this.handleChanges} />
+                            <Autosuggest
+                                theme={theme}
+                                suggestions={this.state.suggestions}
+                                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                                getSuggestionValue={this.getSuggestionValue}
+                                renderSuggestion={this.renderSuggestion}
+                                inputProps={inputProps}
+                            />
                             <button type="submit">Adicionar</button>
                         </form>
                     </div>

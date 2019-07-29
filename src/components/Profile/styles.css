@@ -82,6 +82,7 @@
     align-items: center;
     padding: 3em;
 }
+
 .modal-content input{
     flex:1;
     font-size: 18px;
@@ -90,7 +91,6 @@
     background-color: #473b26;
     color: white;
     padding: 5px;
-    margin-right: 3em; 
 }
 .modal-content button{
     width: 20%;
@@ -142,12 +142,8 @@
         justify-content: center;
         flex-direction: column;
     }
-    .modal-content input{
-        margin: 0;
-        margin-bottom: 1em;
-        width: 100%;
-    }
     .modal-content button{
+        margin-top: 1em;
         width: 100%;
     }
     .champ-info{
